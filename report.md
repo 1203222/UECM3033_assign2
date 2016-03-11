@@ -42,7 +42,7 @@ Firstly, I will write the python code for LU factorisation and SOR method in ord
 
 ## Task 2 -- SVD method and image compression
 
-Put here your picture file (Lenna.png)
+Put here your picture file 
 
 !['Metalslug.jpg'](Lenna.png)
 
