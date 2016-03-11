@@ -1,8 +1,8 @@
 UECM3033 Assignment #2 Report
 ========================================================
 
-- Prepared by: ** Put your name here**
-- Tutorial Group: T2/T3
+- Prepared by: Liew Kok Hoong
+- Tutorial Group: T3
 
 --------------------------------------------------------
 
@@ -10,11 +10,17 @@ UECM3033 Assignment #2 Report
 
 The reports, codes and supporting documents are to be uploaded to Github at: 
 
-[https://github.com/your_github_id/UECM3033_assign1](https://github.com/your_github_id/UECM3033_assign1)
+[https://github.com/1203222/UECM3033_assign2](https://github.com/your_github_id/UECM3033_assign1)
 
 Explain your selection criteria here.
 
+SOR method is preferred method for solving linear system if a matrix A be a positive definite matrix which mean all the eigenvalues of matrix A are positive( all eigenvalues of matrix A > 0 ). The formula of optimal ω for the SOR method is calculated if and only if matirx A  be a positive definite matrix. Besides, the range of the ω is between 0 and 2. 
+
+LU factorisation is preferred method for solving linear system if a matrix A is not a positive definite matrix. Moreover, the LU factorisation will be preferred if solve Ax=b for different values of b, as one only need to factorise A once and the same L and U can be applied to the different values of b repeatly. This is because the matrix A will be factorised into two triangular form LU and solve the Ax=b by substitution.
+
 Explain how you implement your `task1.py` here.
+
+
 
 ---------------------------------------------------------
 
