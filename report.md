@@ -44,16 +44,21 @@ Firstly, I will write the python code for LU factorisation and SOR method in ord
 
 Put here your picture file (Lenna.png)
 
-![Lenna.png](Lenna.png)
+!['Metalslug.jpg'](Lenna.png)
 
 How many non zero element in $\Sigma$?
+
+Answer: 11
 
 Put here your lower and better resolution pictures. Explain how you generate
 these pictures from `task2.py`.
 
 What is a sparse matrix?
 
+Sparse matrix is a matrix in which most of the elements are zero.
+
+
 
 -----------------------------------
 
-<sup>last modified: change your date here</sup>
+<sup>last modified: 11/3/2016</sup>
