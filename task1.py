@@ -4,22 +4,54 @@ import numpy as np
 
 def lu(A, b):
     sol = []
-    # Edit here to implement your code
+    def LUdecomp(A):
+        n = len(A)
+        for k in range(0, n-1):
+            for i in range(k+1, n):
+                if A[i,k] != 0.0:
+                    lam = A[i,k] / A[k,k]
+                    A[i, k+1:n] = A[i, k+1:n] - lam * A[k, k+1:n]
+                    A[i, k] = lam
+        return A
+    def LUsolve(A,b):
+        n = len(A)
+        for k in range(1,n):
+            b[k] = b[k] - np.dot(A[k,0:k], b[0:k])
+        b[n-1]=b[n-1]/A[n-1, n-1]
+        for k in range(n-2, -1, -1):
+                b[k] = (b[k] - np.dot(A[k,k+1:n], b[k+1:n]))/A[k,k]
+        return b
+        A = LUdecomp(A)
+        b = LUsolve(A,b)
+        print(A)
+        print(b)
     return list(sol)
 
 def sor(A, b):
     sol = []
-    # Edit here to implement your code
+    ITERATION_LIMIT = 10
+    
+    omega = 1.1
+    x = np.zeros_like(b)
+    msg  = '  i          x(1)         x(2)          x(3) \n'
+    msg += '=============================================\n'
+    msg += '%3d  %12.4f  %12.4f  %12.4f\n'%(0, x[0],x[1],x[2])
+    for itr in range(ITERATION_LIMIT):
+        for i in range(len(b)):
+            sums = np.dot( A[i,:], x )
+            x[i] = x[i] + omega*(b[i]-sums)/A[i,i]
+        msg += '%3d  %12.4f  %12.4f  %12.4f\n'%(itr, x[0],x[1],x[2])
+    print(msg)
     return list(sol)
 
 def solve(A, b):
-    condition = True # State and implement your condition here
+    condition = np.all(np.linalg.eigvals(A) > 0)
     if condition:
-        print('Solve by lu(A,b)')
-        return lu(A,b)
-    else:
         print('Solve by sor(A,b)')
         return sor(A,b)
+    else:
+        print('Solve by lu(A,b)')
+        return lu(A,b)
 
 if __name__ == "__main__":
     ## import checker
